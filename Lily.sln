@@ -3,6 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E72F7A6F-4EE9-4E40-8A28-59931F6CCA71}"
+	ProjectSection(SolutionItems) = preProject
+		src\.gitkeep = src\.gitkeep
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B3062261-29A5-464D-98C1-09E6490019E3}"
+	ProjectSection(SolutionItems) = preProject
+		tests\.gitkeep = tests\.gitkeep
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{D5F47876-C75E-4E42-9E20-5EE4680F6195}"
+	ProjectSection(SolutionItems) = preProject
+		docs\.gitkeep = docs\.gitkeep
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A015B16D-0D01-4098-8029-4185849A1590}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\.gitkeep = scripts\.gitkeep
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
