@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Domain
 {
@@ -10,30 +12,46 @@ namespace Domain
 
         public int VersionId { get; private set; }
 
-        private const string _fileNameExtension  = ".pdf";
+        private const string _fileNameExtension = ".pdf";
 
-        private const string _fileNameSeparator = "_";
+        private const int _emptyVersionId = 0;
 
-        public FileNameGenerator(string fileName, int versionId) 
+        public FileNameGenerator(string fileName) 
         {
-            FileName = fileName;
-            VersionId = versionId;            
+            GetVersionId(fileName);
+            GetFileName(fileName);
         }
 
 
-        public override string ToString()
+        private void GetVersionId(string fileName)
         {
-            return GenerateFileName(FileName, VersionId) + _fileNameExtension;
-        }
 
-        private string GenerateFileName(string fileName, int versionId)
-        {
-            if (versionId == 0)
+            string removeextension = string.Concat(fileName.Reverse().Skip(4).Reverse());
+            string digitalstring = string.Empty;
+
+            for (int i = 0; i < removeextension.Length; i++)
             {
-                return fileName;
+                if (Char.IsDigit(removeextension[i]))
+                    digitalstring += removeextension[i];
             }
 
-            return fileName + _fileNameSeparator + versionId;
+            if (String.IsNullOrEmpty(digitalstring))
+            {
+                VersionId = _emptyVersionId;
+            }
+            else 
+            {
+                VersionId = Int32.Parse(digitalstring);
+            }
+        
+        }
+
+        private void GetFileName(string fileName)
+        {
+
+            string revisefilename = fileName.Replace(_fileNameExtension, "");
+
+            FileName = revisefilename;
         }
 
 
